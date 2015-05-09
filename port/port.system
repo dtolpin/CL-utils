@@ -1,0 +1,19 @@
+;;; -*- Lisp -*-
+;;;
+;;; Cross-implementation Portability System
+;;;
+;;; $Id: port.system,v 1.2 2005/06/02 22:37:59 dvd Exp $
+
+(mk:defsystem "port"
+	:source-extension "lisp"
+	:source-pathname 
+		(make-pathname :name nil :type nil :version nil
+    		:defaults (parse-namestring *load-truename*))
+    :components
+    ((:file "ext")
+     (:file "gray" :depends-on ("ext"))
+     (:file "net" :depends-on ("ext" "sys"))
+     (:file "path" :depends-on ("ext"))
+     (:file "proc" :depends-on ("ext"))
+     (:file "shell" :depends-on ("ext"))
+     (:file "sys" :depends-on ("ext" "path"))))

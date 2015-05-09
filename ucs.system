@@ -1,0 +1,9 @@
+(mk:defsystem "ucs"
+	:source-extension "lisp"
+	:source-pathname 
+		(make-pathname :name nil :type nil :version nil
+    		:defaults (parse-namestring *load-truename*))
+    :components (
+    	(:file "ucs-package")
+    	(:file "ucs" :depends-on ("ucs-package"))
+    	(:file "ucs-ranges" :depends-on ("ucs-package"))))

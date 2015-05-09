@@ -1,0 +1,16 @@
+; $Id: urx.system,v 1.2 2005/06/02 22:37:59 dvd Exp $
+
+(mk:defsystem "urx"
+	:source-extension "lisp"
+	:source-pathname 
+		(make-pathname :name nil :type nil :version nil
+    		:defaults (parse-namestring *load-truename*))
+	:components (
+		(:file "promise")
+		(:file "ucs-package")
+		(:file "ucs-ranges" :depends-on ("ucs-package"))
+		(:file "ucs" :depends-on ("promise" "ucs-package" "ucs-ranges"))
+		(:file "urx-package")
+		(:file "urx-xml-ranges" :depends-on  ("urx-package"))
+		(:file "urx" :depends-on ("ucs" "promise"
+			"urx-package" "urx-xml-ranges"))))

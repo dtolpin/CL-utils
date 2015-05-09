@@ -1,0 +1,13 @@
+; $Id: ll-parsing.system,v 1.2 2005/06/02 22:37:59 dvd Exp $
+
+(in-package "CL-USER")
+
+(mk:defsystem "ll-parsing"
+	:source-extension "lisp"
+	:source-pathname 
+		(make-pathname :name nil :type nil :version nil
+    		:defaults (parse-namestring *load-truename*))
+	:source-pathname *ll-parsing-base-directory*
+	:source-extension "lisp"
+	:components (
+		(:file "ll-parsing")))

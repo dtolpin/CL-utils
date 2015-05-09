@@ -1,0 +1,9 @@
+; $Id: html-writer.system,v 1.1 2005/06/03 16:51:27 dvd Exp $
+
+(mk:defsystem "html-writer"
+	:source-extension "lisp"
+	:source-pathname 
+		(make-pathname :name nil :type nil :version nil
+			:defaults (parse-namestring *load-truename*))
+	:components (
+		(:file "html-writer")))
